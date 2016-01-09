@@ -51,16 +51,23 @@ angular.module('gservice', [])
             // Loop through all of the JSON entries provided in the response
             for(var i= 0; i < response.length; i++) {
                 var user = response[i];
-
+                if(user.avatar===undefined){
+                    if(user.gender==="Male"){
+                    user.avatar = "https://cdn4.iconfinder.com/data/icons/rounded-avatars/512/hockey-mask-face-avatar-round-128.png";
+                    }else{
+                        user.avatar="http://png.clipart.me/graphics/thumbs/170/cartoon-girl-icon-avatar-portrait-illustration-series_170660654.jpg";
+                    }
+                }
                 // Create popup windows for each record
                 var  contentString =
+                    '<img src="'+user.avatar+'"width="80" height="80">'+'<br>'+'<br>'+
                     '<p><b>Name</b>: ' + user.username +
                     '<br><b>Age</b>: ' + user.age +
                     '<br><b>Gender</b>: ' + user.gender +
                     '<br><b>' + user.question +'</b>'+
                     '<br>' + user.answer+
-                    '<img src='+"https://secure.gravatar.com/avatar/a5eb9dab63874316a83a2b82da49fa00?s=48&r=g&d=monsterid"+'width="30" height="30">'+
                     '</p>';
+                
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
                 locations.push({
@@ -112,9 +119,17 @@ var initialize = function(latitude, longitude, filter) {
             icon: icon,
         });
         if(n.feeling==="superman"){
-            marker.icon="https://secure.gravatar.com/avatar/a5eb9dab63874316a83a2b82da49fa00?s=48&r=g&d=monsterid";
+            marker.icon="http://maps.google.com/mapfiles/ms/icons/orange-dot.png";
         }
-
+        else if(n.feeling==="exhausted"){
+            marker.icon="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+        }
+        else if(n.feeling==="sad"){
+            marker.icon="http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+        }
+        else{
+            marker.icon="http://maps.google.com/mapfiles/ms/icons/purple-dot.png";
+        }
         // For each marker created, add a listener that checks for clicks
         google.maps.event.addListener(marker, 'click', function(e){
 

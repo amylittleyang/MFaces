@@ -13,6 +13,7 @@ var UserSchema = new Schema({
     location    :   {type: [Number], requried: true},
     htmlverified:   String,
     feeling     :   {type: String, requried: true},
+    avatar      :   {type: String, requried: true},
     created_at  :   {type: Date, default: Date.now},
     updated_at  :   {type: Date, default: Date.now}
 });

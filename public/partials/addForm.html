@@ -70,23 +70,8 @@
                         <div class="form-group">
                             <label for="img">Pick Your Avatar</label>
                         </div>
-                        <a href="">
-                            <img src="http://img.download.pchome.net/32/kx/logo.jpg" alt="Fjords" width="40" height="40">
-                        </a>
-                        <a href="#">
-                            <img src="https://avatars3.githubusercontent.com/u/9919?v=3&s=48" alt="github" width="40" height="40">
-                        </a>
-                        <a href="#">
-                            <img src="https://gravatar.com/avatar/913a083f8645c29c619a1325dea22ced?size=38&d=https://koding-cdn.s3.amazonaws.com/images/default.avatar.140.png&r=g" alt="github" width="40" height="40">
-                        </a>
-                        <a href="#">
-                            <img src="http://33.media.tumblr.com/avatar_088dda6551a1_128.png" alt="github" width="40" height="40">
-                        </a>
-                        <a href="#">
-                            <img src="http://www.sireasgallery.com/iconset/happytreefriends/Nutty_256x256_32.png" alt="github" width="40" height="40">
-                        </a>
-                        <a href="#">
-                            <img src="https://cdn2.iconfinder.com/data/icons/humano2/128x128/apps/comix.png" width="40" height="40">
+                        <a href="" ng-repeat="url in avatarUrls">
+                            <img src="{{url}}" alt="avatarImg" width="40" height="40" ng-click="setAvatar(url)">
                         </a>
                         
                         <br><br>

@@ -5,6 +5,7 @@ addCtrl.controller('addCtrl',function($scope,$http, geolocation,gservice, $rootS
     var lat = 0;
     var long = 0;
     var questions = ["Favorite salty snack?","Your hair style?","Exotic pet you'd like to have?","What color underwear are you wearing?","Favorite food","Favorite dessert","Who's more handsome, Tom Cruise or Brad Pitt?","Who's the worst female singer?","Favorite movie of all times","Have you watched Interstellar?","What color is your hair?"];
+    $scope.avatarUrls = ["http://img.download.pchome.net/32/kx/logo.jpg","https://cdn4.iconfinder.com/data/icons/rounded-avatars/512/hockey-mask-face-avatar-round-128.png","https://cdn4.iconfinder.com/data/icons/rounded-avatars/154/round-avatar-china-face-samurai-128.png","http://png.clipart.me/graphics/thumbs/170/cartoon-girl-icon-avatar-portrait-illustration-series_170660654.jpg","http://365psd.com/images/premium/thumbs/171/cartoon-girl-icon-avatar-portrait-illustration-series-849646.jpg"];
     $scope.formData.question=questions[Math.floor(Math.random()*questions.length)];
     
     // Get User's actual coordinates based on HTML5 at window load
@@ -26,6 +27,9 @@ addCtrl.controller('addCtrl',function($scope,$http, geolocation,gservice, $rootS
         gservice.refresh($scope.formData.latitude, $scope.formData.longitude);
     });
     
+    $scope.setAvatar=function(url){
+      $scope.formData.avatar=url;  
+    };
     
     $scope.formData.latitude = 39.500;
     $scope.formData.longitude = -98.350;
@@ -55,7 +59,8 @@ addCtrl.controller('addCtrl',function($scope,$http, geolocation,gservice, $rootS
           feeling:$scope.formData.feeling,
           location:[$scope.formData.longitude, $scope.formData.latitude],
           address:$scope.formData.address,
-          htmlverified:$scope.formData.htmlverified
+          htmlverified:$scope.formData.htmlverified,
+          avatar:$scope.formData.avatar
       };
         if($scope.ageSecret){
             userData.age=404;
