@@ -35,26 +35,77 @@
                                 What's it to ya?
                             </label>
                         </div>
+                            
+                            
+                        
                         <div class="form-group">
                             <label for="age">Age</label>
-                            <input type="number" class="form-control" id="age" placeholder="37" ng-model="formData.age" required>
+                            <input type="number" class="form-control" id="age" placeholder="37" ng-model="formData.age" ng-disabled="ageSecret" required>
+                            <input type="checkbox" name="secret" value="true" ng-model="ageSecret">&nbsp;Let's keep it a secret<br>
+                        </div>
+                        <label class="radio control-label"> I'm feeling ... </label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="radio" id="radiosuperman" value="superman" ng-model="formData.feeling">
+                                like a superman
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="radio" id="radioexhausted" value="exhausted" ng-model="formData.feeling">
+                                exhausted
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="radio" id="radiosad" value="sad" ng-model="formData.feeling">
+                                sad and lonely
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="language">{{ formData.question }}</label>
+                            <input type="text" class="form-control" id="language" placeholder="Dunno what you're talking about" ng-model="formData.favlang" required>
                         </div>
                         <div class="form-group">
-                            <label for="language">Favorite Language</label>
-                            <input type="text" class="form-control" id="language" placeholder="Javascript" ng-model="formData.favlang" required>
+                            <label for="img">Pick Your Avatar</label>
                         </div>
+                        <a href="">
+                            <img src="http://img.download.pchome.net/32/kx/logo.jpg" alt="Fjords" width="40" height="40">
+                        </a>
+                        <a href="#">
+                            <img src="https://avatars3.githubusercontent.com/u/9919?v=3&s=48" alt="github" width="40" height="40">
+                        </a>
+                        <a href="#">
+                            <img src="https://gravatar.com/avatar/913a083f8645c29c619a1325dea22ced?size=38&d=https://koding-cdn.s3.amazonaws.com/images/default.avatar.140.png&r=g" alt="github" width="40" height="40">
+                        </a>
+                        <a href="#">
+                            <img src="http://33.media.tumblr.com/avatar_088dda6551a1_128.png" alt="github" width="40" height="40">
+                        </a>
+                        <a href="#">
+                            <img src="http://www.sireasgallery.com/iconset/happytreefriends/Nutty_256x256_32.png" alt="github" width="40" height="40">
+                        </a>
+                        <a href="#">
+                            <img src="https://cdn2.iconfinder.com/data/icons/humano2/128x128/apps/comix.png" width="40" height="40">
+                        </a>
+                        
+                        <br><br>
                         <div class="form-group">
-                            <label for="latitude">Latitude</label>
-                            <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.latitude" readonly>
+                            <label for="latitude">Set Your Location</label>
+                            <input type="text" class="form-control" id="latitude" value="39.500" ng-model="formData.address" readonly>
                         </div>
+<!--
                         <div class="form-group">
                             <label for="longitude">Longitude</label>
                             <input type="text" class="form-control" id="longitude" value="-98.350" ng-model="formData.longitude" readonly>
                         </div>
+-->
+<!--
                         <div class="form-group">
                             <label for="verified">HTML5 Verified Location? <span><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-refresh"></span></button></span></label>
                             <input type="text" class="form-control" id="verified" placeholder= "Nope (Thanks for spamming my map...)" ng-model="formData.htmlverified" readonly>
                         </div>
+-->
                         <!-- Submit button. Note that its tied to createUser() function from addCtrl. Also note ng-disabled logic which prevents early submits.  -->
                         <button type="submit" class="btn btn-danger btn-block" ng-disabled="addForm.$invalid" ng-click="createUser()">Submit</button>
                     </form>

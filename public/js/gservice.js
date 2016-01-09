@@ -54,10 +54,12 @@ angular.module('gservice', [])
 
                 // Create popup windows for each record
                 var  contentString =
-                    '<p><b>Username</b>: ' + user.username +
+                    '<p><b>Name</b>: ' + user.username +
                     '<br><b>Age</b>: ' + user.age +
                     '<br><b>Gender</b>: ' + user.gender +
-                    '<br><b>Favorite Language</b>: ' + user.favlang +
+                    '<br><b>' + user.question +'</b>'+
+                    '<br>' + user.answer+
+                    '<img src='+"https://secure.gravatar.com/avatar/a5eb9dab63874316a83a2b82da49fa00?s=48&r=g&d=monsterid"+'width="30" height="30">'+
                     '</p>';
 
                 // Converts each of the JSON records into Google Maps Location format (Note [Lat, Lng] format).
@@ -68,9 +70,11 @@ angular.module('gservice', [])
                         maxWidth: 320
                     }),
                     username: user.username,
+                    question: user.question,
                     gender: user.gender,
                     age: user.age,
-                    favlang: user.favlang
+                    feeling:user.feeling,
+                    answer: user.favlang
             });
         }
         // location is now an array populated with records in Google Maps format
@@ -96,7 +100,7 @@ var initialize = function(latitude, longitude, filter) {
     if(filter){
         icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
     }else{
-        icon = "https://cdn2.iconfinder.com/data/icons/smiled-map-markers/512/angry_marker_pointer_position_emotion_emoticon_smile-48.png";
+        icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
     }
 
     // Loop through each location in the array and place a marker
@@ -107,6 +111,9 @@ var initialize = function(latitude, longitude, filter) {
             title: "Big Map",
             icon: icon,
         });
+        if(n.feeling==="superman"){
+            marker.icon="https://secure.gravatar.com/avatar/a5eb9dab63874316a83a2b82da49fa00?s=48&r=g&d=monsterid";
+        }
 
         // For each marker created, add a listener that checks for clicks
         google.maps.event.addListener(marker, 'click', function(e){

@@ -7,9 +7,12 @@ var UserSchema = new Schema({
     username    :   {type: String, required: true},
     gender      :   {type: String, required: true},
     age         :   {type: Number, required: true},
-    favlang     :   {type: String, required: true},
+    question    :   {type: String, required: true},
+    answer      :   {type: String, required: true},
+    address     :   {type: String, required: true},
     location    :   {type: [Number], requried: true},
     htmlverified:   String,
+    feeling     :   {type: String, requried: true},
     created_at  :   {type: Date, default: Date.now},
     updated_at  :   {type: Date, default: Date.now}
 });
