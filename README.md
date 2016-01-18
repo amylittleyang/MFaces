@@ -1,5 +1,5 @@
 #MFaces
-A map-based social network web app for posting instant emotional feelings, find online chat mates, and fun.   
+A map-based social network web app for posting instant emotional feelings, find online chat mates, and have fun.   
 A MEAN stack application built with node.js, Angular.js, MongoDB, Express.js and Google Maps API.   
 <p>Inspired by <a href="https://scotch.io/tutorials/making-mean-apps-with-google-maps-part-i">Create a MEAN Stack Google Map App</a> from <a href="https://scotch.io/">Scotch.io</a>. Thanks Ahmed Haque for creating this awesome tutorial and the can't-be-more-detailed comments.</p>
 
